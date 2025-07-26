@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Speedway Motors Auto Browser",
+  "version": "1.0.0",
+  "description": "Automated browsing tool for Speedway Motors with human-like behavior simulation",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.speedwaymotors.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["https://www.speedwaymotors.com/*"],
+    "js": [
+      "content/human-simulator.js",
+      "content/page-detector.js", 
+      "content/scenario-runner.js",
+      "content/content.js"
+    ],
+    "run_at": "document_idle"
+  }],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Speedway Motors Auto Browser"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [{
+    "resources": ["popup/*"],
+    "matches": ["https://www.speedwaymotors.com/*"]
+  }]
+}

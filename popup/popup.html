@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Speedway Auto Browser</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <h1>🏁 Speedway Auto Browser</h1>
+    <p>Human-like automation for Speedway Motors</p>
+  </div>
+  
+  <div class="content">
+    <!-- Page Info -->
+    <div class="section">
+      <div class="page-info">
+        <span class="page-indicator" id="pageType">Detecting...</span>
+        <span id="pageUrl">Loading...</span>
+      </div>
+    </div>
+    
+    <!-- Scenario Selection -->
+    <div class="section">
+      <div class="section-title">🎯 Select Scenario</div>
+      <select class="scenario-select" id="scenarioSelect">
+        <option value="">Loading scenarios...</option>
+      </select>
+      
+      <div class="parameters" id="parameters">
+        <!-- Dynamic parameters will be inserted here -->
+      </div>
+    </div>
+    
+    <!-- Controls -->
+    <div class="section">
+      <div class="controls">
+        <button class="btn btn-primary" id="startBtn">▶️ Start</button>
+        <button class="btn btn-secondary" id="pauseBtn" disabled>⏸️ Pause</button>
+        <button class="btn btn-danger" id="stopBtn" disabled>⏹️ Stop</button>
+      </div>
+    </div>
+    
+    <!-- Status -->
+    <div class="section">
+      <div class="section-title">📊 Status</div>
+      <div class="status">
+        <div class="status-item">
+          <span>State:</span>
+          <span id="statusState">Idle</span>
+        </div>
+        <div class="status-item">
+          <span>Scenario:</span>
+          <span id="statusScenario">None</span>
+        </div>
+        <div class="status-item">
+          <span>Progress:</span>
+          <span id="statusProgress">0/0</span>
+        </div>
+        <div class="status-item">
+          <span>Duration:</span>
+          <span id="statusDuration">0s</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Settings -->
+    <div class="section">
+      <div class="section-title">⚙️ Settings</div>
+      <div class="settings">
+        <div class="setting">
+          <label>Mouse Speed</label>
+          <div class="range-container">
+            <input type="range" class="range-slider" id="mouseSpeed" min="0.1" max="3" step="0.1" value="1">
+            <span class="range-value" id="mouseSpeedValue">1.0x</span>
+          </div>
+        </div>
+        
+        <div class="setting">
+          <label>Typing Speed</label>
+          <div class="range-container">
+            <input type="range" class="range-slider" id="typingSpeed" min="0.1" max="3" step="0.1" value="1">
+            <span class="range-value" id="typingSpeedValue">1.0x</span>
+          </div>
+        </div>
+        
+        <div class="setting">
+          <label>Humanness</label>
+          <div class="range-container">
+            <input type="range" class="range-slider" id="humanness" min="0.1" max="1" step="0.1" value="0.8">
+            <span class="range-value" id="humannessValue">0.8</span>
+          </div>
+        </div>
+        
+        <div class="setting">
+          <div class="checkbox-container">
+            <input type="checkbox" class="checkbox" id="debugMode">
+            <label for="debugMode">Debug Mode</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Logs -->
+    <div class="section">
+      <div class="section-title">📝 Logs</div>
+      <div class="logs" id="logs">
+        <div class="log-entry">Extension loaded. Ready to start automation.</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
